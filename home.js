@@ -21,7 +21,7 @@ const swiper = new Swiper(".headSwiper", {
 });
 
 
-window.onscroll = function () { //كل ما المستخدم يعمل Scroll (ينزل بالصفحة)، نفذ اللي جوا الـ function دي
+window.onscroll = function () { 
     let btn = document.getElementById("scrollTopBtn");
     if (document.documentElement.scrollTop > 300) { // إذا كان المستخدم نزل أكتر من 300 بكسل في الصفحة
         btn.style.display = "block"; //لو المستخدم نزل أكتر من 300px، اظهر الزر.
@@ -149,7 +149,7 @@ async function getDoctors() {
     });
   }
 
-  //=================== فتح صفحة تفاصيل الدكتور ===================
+  
   function viewDoctor(id) {
     const doc = doctors.find(d => String(d.id) === String(id));
     if (!doc) {
@@ -163,10 +163,10 @@ async function getDoctors() {
     }
     localStorage.setItem("doctorId", id);
     localStorage.setItem("doctor", JSON.stringify(doc));
-    window.location.href = "details.html"; // عدل الاسم لو عندك صفحة مختلفة
+    window.location.href = "details.html"; 
   }
 
-  //=================== Counter Animation ===================
+  
   document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll(".statu strong");
     let started = false;
@@ -233,17 +233,16 @@ function showDetails(item) {
       </div>
     </div>
   `;
-  modal.style.display = "flex";  // افتح المودال
+  modal.style.display = "flex";  
 }
 
 function closeModal() {
-  modal.style.display = "none";  // اقفل المودال
+  modal.style.display = "none"; 
 }
 
-// إغلاق عند الضغط على ×
+
 document.querySelector(".close-modal").addEventListener("click", closeModal);
 
-// إغلاق عند الضغط خارج محتوى المودال
 window.addEventListener("click", e => {
   if (e.target === modal) closeModal();
 });
@@ -258,7 +257,7 @@ function viewDoctor(id) {
     });
     return;
   }
-  showDetails(doc);  // عرض التفاصيل في مودال بدل الانتقال
+  showDetails(doc);  
 }
 
   
