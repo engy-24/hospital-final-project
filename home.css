@@ -466,6 +466,7 @@ body {
 
 
 .doctor-card {
+    
     max-width: 220px;
     height: auto;
 }
@@ -510,24 +511,25 @@ body {
 
 .card-email,
 .card-phone {
-    font-size: 14px;
+   
     color: #333;
     margin: 6px 0;
     display: flex;
     align-items: center;
     padding: 8px 10px;
-    gap: 8px;
     justify-content: flex-start;
     background: #f9f9f9;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
     width: 100%;
+    object-fit: fill;box-sizing: border-box;
+    text-overflow: ellipsis;
 
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-text {
-    font-size: 10px;
+    font-size: px;
 }
 
 .card-email:hover,
@@ -539,7 +541,7 @@ body {
 .card-email i,
 .card-phone i {
     color: #0d6efd;
-    font-size: 16px;
+    font-size: 7px;
 }
 
 

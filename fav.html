@@ -155,6 +155,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="welcom.js"></script>
     <script>
+        function goLogin() {
+        window.location.href = "login.html";
+    }
+    function goRegister() {
+        window.location.href = "C:\Users\hp\OneDrive\Desktop\mu hospital\apdated\hospital-final-project\register.html";
+    }
         const container = document.getElementById("favcards");
         let favcards = JSON.parse(localStorage.getItem("loved")) || [];
         console.log(favcards);
