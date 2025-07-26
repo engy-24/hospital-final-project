@@ -181,36 +181,36 @@
 
 
      <script>
-    const container = document.getElementById("patients-container");
+//     const container = document.getElementById("patients-container");
 
-    fetch("https://edu-me01.github.io/Json-Data/Hospital.json")
-      .then(res => res.json())
-      .then(data => {
-        data.users.forEach(user => {
-          if (user.role === "patient") {
-            container.innerHTML += `
-              <div class="col-md-4 col-lg-3 mb-4">
-                <div class="card h-100">
-                  <img src="${user.profileImageUrl}" class="card-img-top" alt="${user.name}">
-                  <div class="card-body">
-                    <h5 class="card-title">${user.name}</h5>
-                    <p class="card-text">${user.email}</p>
-                  </div>
-                </div>
-              </div>
-            `;
-          }
-        });
-      })
-      .catch(err => console.error("Error loading patients:", err));
+//     fetch("https://edu-me01.github.io/Json-Data/Hospital.json")
+//       .then(res => res.json())
+//       .then(data => {
+//         data.users.forEach(user => {
+//           if (user.role === "patient") {
+//             container.innerHTML += `
+//               <div class="col-md-4 col-lg-3 mb-4">
+//                 <div class="card h-100">
+//                   <img src="${user.profileImageUrl}" class="card-img-top" alt="${user.name}">
+//                   <div class="card-body">
+//                     <h5 class="card-title">${user.name}</h5>
+//                     <p class="card-text">${user.email}</p>
+//                   </div>
+//                 </div>
+//               </div>
+//             `;
+//           }
+//         });
+//       })
+//       .catch(err => console.error("Error loading patients:", err));
 
-    // Optional: Prevent default form submission
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Message sent successfully!");
-      this.reset();
-    });
-  </script>
+//     // Optional: Prevent default form submission
+//     document.getElementById("contactForm").addEventListener("submit", function(e) {
+//       e.preventDefault();
+//       alert("Message sent successfully!");
+//       this.reset();
+//     });
+//   </script>
 
 
 
