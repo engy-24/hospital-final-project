@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>details</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #0026ff, #00c8ff, #2a0a91, #74C0FC);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            overflow-x: hidden;
+            width: 100% !important;
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+
+        }
+
+
+
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+
+
+        #details {
+            margin: 200px auto;
+            width: 80%;
+            padding: 20px;
+
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #details:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card {
+            max-width: 500px;
+            margin: 40px auto;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 3px solid #5bc0de;
+            /* لون أزرق فاتح */
+        }
+
+        .card-body {
+            padding: 20px 30px;
+        }
+
+        .card-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .text-success {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #28a745 !important;
+            /* أخضر */
+        }
+
+        .fw-semibold {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .d-flex.justify-content-center.gap-2.mt-3 button {
+            min-width: 140px;
+            font-weight: 600;
+            border-radius: 25px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .d-flex.justify-content-center.gap-2.mt-3 button.btn-danger:hover {
+            background-color: #dc3545cc;
+        }
+
+        .d-flex.justify-content-center.gap-2.mt-3 button.btn-secondary:hover {
+            background-color: #6c757dcc;
+        }
+    </style>
+    <link rel="stylesheet" href="shared.css">
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="container d-flex justify-content-end contact-info">
+            <div><i class="fa-solid fa-envelope"></i> info@example.com</div>
+            <div><i class="fa-solid fa-phone"></i> +8 12 3456897</div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+
+
+
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-suitcase-medical"></i>MeCare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fav.html">Favourites</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex ms-3 gap-2 guest-only">
+                    <button class="btn btn-primary px-4 py-2 rounded-pill" onclick="goLogin()">Login</button>
+                    <button class="btn btn-outline-primary px-4 py-2 rounded-pill"
+                        onclick="goRegister()">Register</button>
+                </div>
+
+                <div class="ms-3 gap-2 align-items-center auth-only d-none" id="authArea">
+                    <span id="welcomeUser" class="me-2 fw-bold"></span>
+                    <button class="btn btn-outline-danger px-4 py-2 rounded-pill" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="details" data-aos="zoom-in" data-aos-duration="600"></div>
+
+    <!-- ============================footer=================================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>MeCare</h3>
+                <p>
+
+                    We provide high-quality medical care with expert doctors, modern equipment, and a focus on patient
+                    comfort and safety.
+
+
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">Cart</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Property Types</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#"> Career</a></li>
+                    <li><a href="#"> Reviews</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <p><i class="fa fa-map-marker"></i> 125 MeCare, City, Country</p>
+                <p><i class="fa fa-phone"></i> +1 234 567 8900</p>
+                <p><i class="fa fa-envelope"></i> info@MeCare.com</p>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="footer-bottom">
+            <p>© 2024 MeCare all copyrights </p>
+            <p>Designed with <span><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a></span> for you</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="welcom.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        let allProducts = [];
+        const container = document.getElementById("details");
+        const id = localStorage.getItem("doctorId");
+
+        fetch("https://edu-me01.github.io/Json-Data/Hospital.json")
+            .then(res => res.json())
+            .then(data => {
+                allProducts = data.services;
+                const item = allProducts.find(p => p.id == id); // نبحث عن المنتج
+
+                if (item) {
+                    showDetails(item);
+                } else {
+                    container.innerHTML = "<p class='text-danger'>Item not found!</p>";
+                }
+            });
+
+        // دالة عرض التفاصيل
+        function showDetails(item) {
+            container.innerHTML = `
+      <div class="card p-4 shadow-lg border-0" data-aos="fade-up" data-aos-duration="800">
+  <img src="${item.iconUrl}" class="card-img-top rounded mb-3" alt="${item.serviceName}">
+  <div class="card-body text-center">
+    <h3 class="card-title">${item.serviceName}</h3>
+    <p class="text-success fs-4 fw-bold"><i class="fa-solid fa-star" style="color: #FFD43B;"></i>${item.rating}</p>
+    <p class="fw-semibold">Price: $${item.price}</p>
+    <p class="card-text">${item.shortDescription}</p>
+    <div class="d-flex justify-content-center gap-2 mt-3">
+      <button class="btn btn-danger" onclick="addToFav(${item.id})">
+        <i class="fa-solid fa-heart"></i> Add to Favorites
+      </button>
+      <button class="btn btn-secondary" onclick="goBack()">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+    </div>
+  </div>
+</div>
+
+    `;
+        }
+
+
+        function goBack() {
+            window.location.href = "index.html";
+        }
+
+
+        function addToFav(id) {
+            let myArray = JSON.parse(localStorage.getItem("loved")) || [];
+            let item = allProducts.find(p => p.id == id);
+            if (!item) return;
+
+            if (!myArray.find(p => p.id == id)) {
+                myArray.push(item);
+                localStorage.setItem("loved", JSON.stringify(myArray));
+                Swal.fire({
+                    icon: "success",
+                    title: "Added to favorites!",
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            } else {
+                Swal.fire({
+                    icon: "info",
+                    title: "Already in favorites",
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            }
+        }
+        function goToDetails(id) {
+            localStorage.setItem("doctorId", id);
+            window.location.href = "details2.html"; // أو اسم صفحة التفاصيل
+        }
+
+
+
+    </script>
+</body>
+
+</html>

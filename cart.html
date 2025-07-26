@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My cart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    #cart-container,
+    #confirmm {
+      display: flex;
+      flex-wrap: wrap;
+      width: 80%;
+      margin: 200px auto;
+      display: flex;
+      justify-content: center;
+      border-radius: 15px;
+      background-color: rgb(67, 94, 225);
+      padding: 40px;
+
+    }
+
+    .card {
+      width: 300px;
+
+
+      overflow: hidden;
+      background-color: white;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      margin: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      transition: all 0.3s ease-in-out;
+
+
+
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 2px 3px 15px grey;
+
+    }
+
+    .card img {
+      width: 100%;
+
+
+    }
+
+    p {
+      margin: 10px;
+    }
+
+    h3 {
+      margin: 10px;
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="shared.css">
+</head>
+
+
+<body>
+
+  <div class="topbar">
+    <div class="container d-flex justify-content-end contact-info">
+      <div><i class="fa-solid fa-envelope"></i> info@example.com</div>
+      <div><i class="fa-solid fa-phone"></i> +8 12 3456897</div>
+    </div>
+  </div>
+
+
+  <nav class="navbar navbar-expand-lg">
+
+
+
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fa-solid fa-suitcase-medical"></i>MeCare</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="fav.html">Favourites</a>
+          </li>
+        </ul>
+
+        <div class="d-flex ms-3 gap-2 guest-only">
+          <button class="btn btn-primary px-4 py-2 rounded-pill" onclick="goLogin()">Login</button>
+          <button class="btn btn-outline-primary px-4 py-2 rounded-pill" onclick="goRegister()">Register</button>
+        </div>
+
+        <div class="ms-3 gap-2 align-items-center auth-only d-none" id="authArea">
+          <span id="welcomeUser" class="me-2 fw-bold"></span>
+          <button class="btn btn-outline-danger px-4 py-2 rounded-pill" onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="cart-container"></div>
+  <div id="confirmm"></div>
+
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
+  <script src="welcom.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+ 
+  <script>
+    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+    const container = document.getElementById("cart-container");
+
+    if (cartData.length === 0) {
+      container.innerHTML = `
+    <div class="text-center py-5">
+      <h3 class="text-light mb-4">The cart is empty</h3>
+      <a href="services.html" class="btn btn-primary">
+        <i class="fa-solid fa-plus"></i> Add Services
+      </a>
+    </div>
+  `;
+    } else {
+      container.innerHTML = "";
+
+      // زر مسح الكل
+      const clearDiv = document.createElement("div");
+      clearDiv.className = "w-100 text-end me-3 mb-3";
+      clearDiv.innerHTML = `
+    <button class="btn btn-danger" onclick="clearAll()">
+      <i class="fa-solid fa-trash text-white"></i> Clear All
+    </button>
+  `;
+      container.appendChild(clearDiv);
+
+      cartData.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("card", "mb-3", "p-3");
+        div.dataset.id = item.id;
+
+        div.innerHTML = `
+      <img src="${item.iconUrl}" alt="${item.serviceName}" style="width: 100%; object-fit: cover;">
+      <h3>${item.serviceName}</h3>
+      <p>$${Number(item.price).toFixed(2)}</p>
+      <p style="color:grey;">${item.estimatedDeliveryTime}</p>
+      <h6><i class="fa-solid fa-star" style="color: #FFD43B;"></i> ${item.rating}</h6>
+      <button onclick="removeFromCart(${item.id})" class="btn btn-danger btn-sm mt-2">
+        <i class="fa-solid fa-trash"></i> Remove
+      </button>
+      <button onclick="confirmm(${item.id})" class="btn btn-success btn-sm mt-2 ms-2">
+        Confirm
+      </button>
+    `;
+        container.appendChild(div);
+      });
+
+    }
+
+    function removeFromCart(id) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Do you really want to remove this item from the cart?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, remove it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          let cartArray = JSON.parse(localStorage.getItem("cart")) || [];
+          cartArray = cartArray.filter(p => p.id != id);
+          localStorage.setItem("cart", JSON.stringify(cartArray));
+          Swal.fire({
+            title: "Removed!",
+            text: "The item has been removed from your cart.",
+            icon: "success"
+          }).then(() => {
+            location.reload();
+          });
+        }
+      });
+    }
+
+    function clearAll() {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "All items will be deleted from the cart!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete all!',
+        cancelButtonText: 'Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.removeItem("cart");
+          Swal.fire({
+            title: 'Deleted!',
+            text: 'All items have been removed.',
+            icon: 'success',
+            timer: 1500,
+            showConfirmButton: false
+          }).then(() => {
+            location.reload();
+          });
+        }
+      });
+    }
+
+    function confirmm(id) {
+      const card = document.querySelector(`.card[data-id="${id}"]`);
+      const confirmContainer = document.getElementById("confirmm");
+
+      if (!card || !confirmContainer) return;
+
+      if (card.querySelector(".confirmed-text")) return;
+      const confirmedNote = document.createElement("p");
+      confirmedNote.className = "confirmed-text mt-2 fw-bold text-success";
+      confirmedNote.textContent = "Confirmed";
+      card.appendChild(confirmedNote);
+
+      const confirmBtn = card.querySelector("button.btn-success");
+      if (confirmBtn) {
+        confirmBtn.disabled = true;
+        confirmBtn.textContent = "Confirmed";
+      }
+
+      confirmContainer.appendChild(card);
+
+      Swal.fire({
+        title: "Confirmed!",
+        text: `Item with ID: ${id} has been confirmed.`,
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false
+      });
+    }
+
+
+
+  </script>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,191 @@
+ * {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+/* ===== Hero Section ===== */
+.sec1 {
+  background-image: url("pexels-vidalbalielojrfotografia-3376799.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px 20px;
+  height: 600px;
+}
+
+.textcontainer {
+  background-color: #33333376;
+  margin-top: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.text-container {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.home {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  display: inline-block;
+  margin-top: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.home:hover {
+  color: #0d6efd;
+}
+
+/* ===== Contact Form Section ===== */
+.theform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  max-width: 1200px;
+  transition: transform 0.3s ease;
+}
+.theform:hover{
+     transform: translateY(-10px);
+
+}
+
+.desimeg {
+  flex: 1 1 45%;
+}
+
+.desimeg img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.thetext {
+  flex: 1 1 45%;
+  text-align: left;
+}
+
+.thetext h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.thetext p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+#conactform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#names {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#names input {
+  flex: 1 1 45%;
+}
+
+#conactform input,
+textarea {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+textarea {
+  height: 200px;
+  resize: vertical;
+}
+
+#submit {
+  padding: 10px 30px;
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(to right, blue, aqua);
+  color: white;
+  font-weight: bold;
+  box-shadow: 1px 2px 10px gray;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background: linear-gradient(to left, blue, aqua);
+  transform: scale(0.95);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border: 2px solid #6c63ff;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
+  background-color: #f5f5ff;
+}
+
+/* ===== Responsive ===== */
+
+/* موبايل */
+@media (max-width: 600px) {
+  .text-container {
+    font-size: 1.8rem;
+    padding: 10px;
+  }
+
+  .textcontainer {
+    margin-top: 40px;
+    padding: 15px;
+  }
+
+  .theform {
+    flex-direction: column;
+    padding: 15px;
+    margin: 10px;
+  }
+
+  textarea,
+  #submit,
+  #conactform input,
+  #names input {
+    width: 100% !important;
+    max-width: 100%;
+  }
+}
+
+/* تابلت */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .text-container {
+    font-size: 2.2rem;
+  }
+
+  textarea,
+  #submit,
+  #conactform input,
+  #names input {
+    width: 100% !important;
+    max-width: 100%;
+  }
+}
