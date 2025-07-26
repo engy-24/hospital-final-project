@@ -108,6 +108,8 @@
   </div>
 </div>
 
+<div id="patients-container"></div>
+
 
 
 
@@ -118,13 +120,17 @@
 
 
     <!-- ============================footer=================================== -->
+    <!-- ============================footer=================================== -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
                 <h3>MeCare</h3>
                 <p>
-                    Sed ut perspiciatis unde om is nerror sit voluptatem accustium dolorem tium totam rem aperam eaque
-                    ipsa quae ab illose inntore veritatis
+
+                    We provide high-quality medical care with expert doctors, modern equipment, and a focus on patient
+                    comfort and safety.
+
+
                 </p>
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -140,7 +146,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Favorites</a></li>
-                    <li><a href="#">Crt</a></li>
+                    <li><a href="#">Cart</a></li>
                 </ul>
             </div>
 
@@ -156,29 +162,55 @@
 
             <div class="footer-section">
                 <h4>Contact Information</h4>
-                <p><i class="fa fa-map-marker"></i> 123 Luxury Street, City, Country</p>
+                <p><i class="fa fa-map-marker"></i> 125 MeCare, City, Country</p>
                 <p><i class="fa fa-phone"></i> +1 234 567 8900</p>
-                <p><i class="fa fa-envelope"></i> info@luxuryestates.com</p>
+                <p><i class="fa fa-envelope"></i> info@MeCare.com</p>
             </div>
         </div>
 
         <hr />
 
         <div class="footer-bottom">
-            <p>© 2024 Luxury Estates. جميع الحقوق محفوظة.</p>
+            <p>© 2024 MeCare all copyrights </p>
             <p>Designed with <span><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a></span> for you</p>
         </div>
     </footer>
 
 
-    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-
-
-
     </div>
+
+
+     <script>
+    const container = document.getElementById("patients-container");
+
+    fetch("https://edu-me01.github.io/Json-Data/Hospital.json")
+      .then(res => res.json())
+      .then(data => {
+        data.users.forEach(user => {
+          if (user.role === "patient") {
+            container.innerHTML += `
+              <div class="col-md-4 col-lg-3 mb-4">
+                <div class="card h-100">
+                  <img src="${user.profileImageUrl}" class="card-img-top" alt="${user.name}">
+                  <div class="card-body">
+                    <h5 class="card-title">${user.name}</h5>
+                    <p class="card-text">${user.email}</p>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+        });
+      })
+      .catch(err => console.error("Error loading patients:", err));
+
+    // Optional: Prevent default form submission
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Message sent successfully!");
+      this.reset();
+    });
+  </script>
 
 
 
