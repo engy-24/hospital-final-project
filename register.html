@@ -10,110 +10,51 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: 120px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(-45deg, #0026ff, #00c8ff, #2a0a91, #74C0FC);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-    }
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    @keyframes gradientBG {
-      0% {
-        background-position: 0% 50%;
-      }
+body {
+  background: linear-gradient(-45deg, #0026ff, #00c8ff, #2a0a91, #74C0FC);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
 
-      50% {
-        background-position: 100% 50%;
-      }
+.themain {
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px; /* على حسب ارتفاع النافبار + التوب بار */
+  padding-bottom: 40px; /* مساحة صغيرة للفوتر */
+  box-sizing: border-box;
+}
 
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-
-    .topbar {
-      background: linear-gradient(90deg, #0026ff, #00c8ff);
-      color: #fff;
-      font-size: 14px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 0 20px;
-    }
-
-
-
-    .topbar .contact-info {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .topbar i {
-      margin-right: 5px;
-    }
-
-
-    .navbar {
-      position: fixed;
-      top: 40px;
-      /* أسفل التوب بار مباشرة */
-      left: 0;
-      width: 100%;
-      z-index: 999;
-      /* أقل من التوب بار */
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      padding: 10px 0;
-      height: 100px;
-    }
-
-    .navbar-brand {
-      font-size: 24px;
-      font-weight: bold;
-      color: #2a0a91;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .navbar-brand i {
-      color: #007bff;
-    }
-
-    .nav-link {
-      font-weight: 500;
-      margin: 0 10px;
-      color: #0a0a0a !important;
-      transition: color 0.3s;
-    }
-
-    .nav-link:hover {
-      color: #007bff !important;
-    }
-
-
-    form {
+footer.footer {
+  flex-shrink: 0; /* لا يقلص */
+  padding: 20px 0;
+  background-color: #0a0a0a;
+  color: #fff;
+  text-align: center;
+}
+form{
       background: #fff;
       border-radius: 30px;
-      margin: 100px auto !important;
+      margin: 150px auto 150px auto;
+      /* أعلى، يمين/يسار، أسفل */
       box-shadow: 2px 2px 15px gray;
       transition: all 0.3s ease-in-out;
     }
+
 
     form:hover {
       transform: translateY(-3px);
@@ -151,7 +92,67 @@
     .form-check-label {
       color: #555;
     }
+    .footer {
+  width: 100%;
+  background-color: #111;
+  color: #fff;
+  padding: 40px 0 20px;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+  margin: 20px;
+}
+
+.footer-section h4,
+.footer-section h3 {
+  margin-bottom: 20px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.social-icons a {
+  color: #ccc;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
   </style>
+  <link rel="stylesheet" href="shared.css">
+  
 </head>
 
 <body>
@@ -211,6 +212,7 @@
 
 
 
+<div class="themain">
 
   <form class="p-4 shadow rounded bg-light" style="max-width: 400px; margin: 150px auto;">
 
@@ -248,68 +250,73 @@
   </form>
 
 
+
+
+
+  <!-- ============================footer=================================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>MeCare</h3>
+        <p>
+
+          We provide high-quality medical care with expert doctors, modern equipment, and a focus on patient
+          comfort and safety.
+
+
+        </p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Favorites</a></li>
+          <li><a href="#">Cart</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Property Types</h4>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#"> Career</a></li>
+          <li><a href="#"> Reviews</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact Information</h4>
+        <p><i class="fa fa-map-marker"></i> 125 MeCare, City, Country</p>
+        <p><i class="fa fa-phone"></i> +1 234 567 8900</p>
+        <p><i class="fa fa-envelope"></i> info@MeCare.com</p>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="footer-bottom">
+      <p>© 2024 MeCare all copyrights </p>
+      <p>Designed with <span><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a></span> for you</p>
+    </div>
+  </footer>
+
+
+</div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <script>
-    const form = document.querySelector("form");
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const username = document.getElementById("username").value.trim();
-      const email = document.getElementById("exampleInputEmail1").value.trim();
-      const password = document.getElementById("exampleInputPassword1").value;
-
-      // التحقق من الحقول الفارغة
-      if (!username || !email || !password) {
-        Swal.fire({
-          icon: "error",
-          title: "Missing Fields",
-          text: "Please fill in all fields."
-        });
-        return;
-      }
-
-      // التحقق من كلمة المرور
-      if (!validatePassword(password)) {
-        Swal.fire({
-          icon: "error",
-          title: "Invalid Password",
-          text: "Password must be at least 7 characters long and contain letters and numbers."
-        });
-        return;
-      }
-
-      // التحقق من البريد الإلكتروني المسجل مسبقًا (اختياري)
-      const existingEmail = localStorage.getItem("userEmail");
-      if (existingEmail && existingEmail.toLowerCase() === email.toLowerCase()) {
-        Swal.fire({
-          icon: "warning",
-          title: "Already Registered",
-          text: "This email is already registered. Please login."
-        });
-        return;
-      }
-
-      // التخزين
-      localStorage.setItem("userName", username);
-      localStorage.setItem("userEmail", email);
-      localStorage.setItem("userPassword", password);
-
-      // رسالة نجاح
-      Swal.fire({
-        icon: "success",
-        title: "Account Created",
-        text: "Your account has been created successfully!",
-        confirmButtonText: "Go to Login"
-      }).then(() => {
-        window.location.href = "index.html";
-      });
-    });
-
-    function validatePassword(password) {
-      return password.length > 6 && /[a-zA-Z]/.test(password) && /\d/.test(password);
-    }
+  <script src="reg.js">
+   
   </script>
 
 
